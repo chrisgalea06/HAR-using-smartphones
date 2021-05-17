@@ -30,6 +30,7 @@ Each record log contains 3 files.
  - `DataCollection\Jogging and Falling\Jogging_1.3_(1)\accelerometer.csv`
  - `DataCollection\Jogging and Falling\Jogging_1.3_(1)\gyroscope.csv`
  - `DataCollection\Jogging and Falling\Jogging_1.3_(1)\metadata.csv`
+
 Both sensor csv have 5 columns: 
 1. Time in UNIX epoch nanoseconds
 2. Time in seconds
@@ -57,9 +58,11 @@ Both sensor csv have 5 columns:
 > - skewness()    skewness of the frequency domain signal
 > - kurtosis()    kurtosis of the frequency domain signal
 > - entropy()     signal entropy
-> Thus creating a total of **__** features
 
-We then obtained the Activity and Environment* Columns and converted everything into 2 csv files. One for training and another for testing.
+> Thus creating a total of **279** features
+
+We then obtained the Activity and Environment* Columns and converted everything into 2 csv files. 
+One for training and another for testing.
 
 \* *the environment column is not that important. it was used to keep track of what the data means*
 
