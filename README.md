@@ -17,12 +17,12 @@ The below code shows the preprocessing of raw **accelerometer** and **gyroscope*
 - `preprocessing.ipynb` contains the code that handles the preprocessing of the data
 - `models.ipynb` contains the implementation of the code using the[ dataset](https://www.kaggle.com/uciml/human-activity-recognition-with-smartphones " dataset") used in [*Anguita et. al 2013*](https://www.elen.ucl.ac.be/Proceedings/esann/esannpdf/es2013-84.pdf "*Anguita et. al 2013*")
 - `Kaggle Dataset` is a folder that contains the data collected by Anguita et. al
- - `train.csv` contains the preprocessed train data
- - `test.csv` contains the preprocessed test data
+- - `train.csv` contains the preprocessed train data
+- - `test.csv` contains the preprocessed test data
 - `Data Collection` is a folder that contains the data we collected. It contains three folders:
- - `Data Collection\Walking and Sitting`
- -  `Data Collection\Jogging and Falling`
- - `Data Collection\Laying and Walking Up/Down Stairs`
+ - - `Data Collection\Walking and Sitting`
+ - -  `Data Collection\Jogging and Falling`
+ - - `Data Collection\Laying and Walking Up/Down Stairs`
 
 ## Data Collection
 Each record log contains 3 files.
