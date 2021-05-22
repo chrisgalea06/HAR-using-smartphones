@@ -1,9 +1,9 @@
 
 # Human Activity Recognition (HAR) using  Smartphones (python)
 ### Authors
-    - Christopher Galea
-    - Celine Suban
-    - Diana Darmanin
+    - Christopher Galea @chrisgalea06
+    - Celine Suban @celinesuban
+    - Diana Darmanin @dianadarmanin
                                                                                                         University of Malta
 
 ## Introduction
@@ -14,15 +14,22 @@
 
 The below code shows the preprocessing of raw **accelerometer** and **gyroscope** data and implementation of Machine Learning (ML) Models in order to detect and recognise human activity (**Walking, Jogging, Sitting, Laying, Falling and Walking Up/Down Stairs**)
 
-- `preprocessing.ipynb` contains the code that handles the preprocessing of the data
-- `models.ipynb` contains the implementation of the code using the[ dataset](https://www.kaggle.com/uciml/human-activity-recognition-with-smartphones " dataset") used in [*Anguita et. al 2013*](https://www.elen.ucl.ac.be/Proceedings/esann/esannpdf/es2013-84.pdf "*Anguita et. al 2013*")
+- `GAPT - Implementing Models on Kaggle Dataset.ipynb` contains the implementation of the code using the[ dataset](https://www.kaggle.com/uciml/human-activity-recognition-with-smartphones " dataset") used in [*Anguita et. al 2013*](https://www.elen.ucl.ac.be/Proceedings/esann/esannpdf/es2013-84.pdf "*Anguita et. al 2013*")
+- `GAPT - PreProcessing.ipynb` contains the code that handles the preprocessing of the data we collected
+- `GAPT - Implementing Models on out Data.ipynb` contains the implementation of the code on the data we collected
+
 - `Kaggle Dataset` is a folder that contains the data collected by Anguita et. al
 - - `train.csv` contains the preprocessed train data
 - - `test.csv` contains the preprocessed test data
+
 - `Data Collection` is a folder that contains the data we collected. It contains three folders:
  - - `Data Collection\Walking and Sitting`
  - -  `Data Collection\Jogging and Falling`
  - - `Data Collection\Laying and Walking Up/Down Stairs`
+
+- `Processed Dataset` is a folder that contains the data we collected, preprocessed and split 80% train data, 20% test data
+- - `train.csv` contains the preprocessed train data
+- - `test.csv` contains the preprocessed test data
 
 ## Data Collection
 Each record log contains 3 files.
@@ -39,11 +46,15 @@ Both sensor csv have 5 columns:
 5. z axis
 
 ## Preprocessing
+
+Activities were recorded using [Sensor Logger](https://www.tszheichoi.com/sensorlogger) application which records activities at the highest sampling rate the device allows. This resulted in different sampling rates since 3 smartphones were used. 
+    
 |  Smartphone |  Activities | Sampling Frequency  |
 | ------------ | ------------ | ------------ |
 | One Plus 6T  | Jogging and Falling  | 200Hz (average)  |
 |  Samsung A8 | Walking and Sitting  | 100Hz (average)  |
 |  Samsung A51 | Laying and Walking Up/Down Stairs  | 120Hz (average)  |
+    
 
 ![](Process.png)
 
@@ -59,7 +70,7 @@ Both sensor csv have 5 columns:
 > - kurtosis()    kurtosis of the frequency domain signal
 > - entropy()     signal entropy
 
-> Thus creating a total of **279** features
+Thus creating a total of ***279*** features
 
 We then obtained the Activity and Environment* Columns and converted everything into 2 csv files. 
 One for training and another for testing.
@@ -68,8 +79,7 @@ One for training and another for testing.
 
 
 ## Applying ML Models to the data
-`sklearn` Library was used to implement an SVM 
-`keras and sklearn` Libraries were used to implement a Neural Net
+`sklearn` Library was used to implement an SVM and kNN
 `keras` Library was used to implement an LSTM
 
 The data was adjusted so that it matches each models’ input type and then was split into `x` and `y`. 
@@ -90,10 +100,10 @@ X_test = testing_data.drop(columns = ['Activity', 'subject'])
 ```
 
 The accuracy of the models was as follows:
-| Model  | Accuracy  |
-| ------------ | ------------ |
-|  SVM |  95.0458% |
-|  **NN** |  **95.3851%** |
-|  LSTM |  88.2592% |
+| Model  | Accuracy on Kaggle Dataset | Accuraccy on our Dataset |
+| ------------ | ------------ | ------------- |
+|  SVM |  ***95.05%*** | 73.33% | 
+|  NN |  90.02% | 89.33 |
+|  LSTM |  93.69% | ***94.67%*** |
 
-With NN performing the best and LSTM performing the worst
+It should be noted that LSTM was run 10 times as each time it gives a different result. This is because the weights for the model are initialised randomly. The accuracy results ranged from 61% to 94% with the average being 76%.
